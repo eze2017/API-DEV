@@ -10,8 +10,18 @@ const genres = [
   { id: 3, name: 'Romance' },  
 ];
 
+
+// Setting template engine
+app.set('view engine','pug');
+app.set('views','./views'); //default
+
 app.get('/api/genres', (req, res) => {
   res.send(genres);
+});
+
+app.get('/',(req,resp)=>{
+resp.render('index',{tite: "My Express App",message:"hello"});
+
 });
 
 app.post('/api/genres', (req, res) => {
