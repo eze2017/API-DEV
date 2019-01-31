@@ -7,7 +7,10 @@ console.log('Before');
 
 
 getUser(1)
-.then(user =>console.log(user));
+.then(user =>getRepositories(user.gitHubUserName))
+.then(repos => getCommits(repos[0]))
+.then(commits => console.log('Commits',commits))
+.catch(err => console.log("Error",err.message));
 
 
 
